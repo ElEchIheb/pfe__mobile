@@ -1,0 +1,109 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/dash2" expand="block">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Bulletin De Soins</ion-title>
+    <ion-buttons slot="end">
+      <ion-img src="assets/dxc.png" style="max-width: 50px; height: auto;"></ion-img>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+  <ion-card>
+       <form [formGroup]="bulletinForm" (ngSubmit)="onSubmit()">
+      <ion-list>
+        <ion-item>
+          <ion-label position="stacked">Marque</ion-label>
+          <ion-input type="text" name="marque" formControlName="marque" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Réf BS *</ion-label>
+          <ion-input type="text" name="refBS"  formControlName="refBS" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Nom/Prénom de l'Adhérent *</ion-label>
+          <ion-input type="text" name="nomAdherent"  formControlName="nomAdherent" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Prénom du Malade *</ion-label>
+          <ion-input type="text" name="prenomMalade" formControlName="prenomMalade" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Date des Soins *</ion-label>
+          <ion-input type="Date" name="dateSoins" formControlName="dateSoins" required></ion-input>
+          <!--<ion-datetime-button datetime="datetime"> </ion-datetime-button>-->
+
+          <ion-modal [keepContentsMounted]="true">
+            <ng-template>
+              <ion-datetime id="datetime"></ion-datetime>
+            </ng-template>
+          </ion-modal>
+               </ion-item>
+
+
+        <ion-item>
+          <ion-label position="stacked">Honoraires</ion-label>
+          <ion-input type="text" name="honoraires" formControlName="honoraires"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Pharmacie</ion-label>
+          <ion-input type="text" name="pharmacie" formControlName="pharmacie" ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Analyse </ion-label>
+          <ion-input type="text" name="analyse" formControlName="analyse" ></ion-input>
+        </ion-item>
+        <!--
+        <ion-item>
+
+          <ion-label position="stacked">Radio/Echo/Scanner</ion-label>
+          <ion-input type="text" name="radioEchoScanner"></ion-input>
+        </ion-item>
+      -->
+        <ion-item>
+          <ion-label position="stacked">Maternité/Frais Clinique</ion-label>
+          <ion-input type="text" name="maternite" formControlName="maternite" ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Chirurgie</ion-label>
+          <ion-input type="text" name="chirurgie" formControlName="chirurgie" ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Inject.</ion-label>
+          <ion-input type="text" name="inject" formControlName="inject" ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Dent.</ion-label>
+          <ion-input type="text" name="dent" formControlName="dent" ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Monture</ion-label>
+          <ion-input type="text" name="monture" formControlName="monture"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Total</ion-label>
+          <ion-input type="text" name="total" formControlName="total"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" expand="block" id="sendButton">Envoyer</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button type="button" expand="block" (click)="resetForm()">Annuler</ion-button>
+        </ion-col>
+      </ion-row>
+      
+    </form>
+  </ion-card>
+
+</ion-content>

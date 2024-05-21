@@ -1,0 +1,49 @@
+<!-- signin.component.html -->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Sign In</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closePopup()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="small-popup">
+  <!-- Your sign-in form content here -->
+  <form>
+    <ion-item lines="full">
+      <ion-input type="text" placeholder="First Name"></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-input type="text" placeholder="Last Name"></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-input type="text" placeholder="DXC Email"></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-input type="text" placeholder="DXC ID"></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label>Company</ion-label>
+      <ion-select>
+        <ion-select-option value="NA" selected>NA (default)</ion-select-option>
+        <ion-select-option value="Renault">Renault</ion-select-option>
+        <ion-select-option value="Nissan">Nissan</ion-select-option>
+        <ion-select-option value="Saipem">Saipem</ion-select-option>
+        <ion-select-option value="Convatec">Convatec</ion-select-option>
+        <ion-select-option value="Philips">Philips</ion-select-option>
+        <ion-select-option value="Sonova">Sonova</ion-select-option>
+        <ion-select-option value="Hanes">Hanes</ion-select-option>
+        <ion-select-option value="Xpo">Xpo</ion-select-option>
+        <ion-select-option value="Gxo">Gxo</ion-select-option>
+        <ion-select-option value="Mylan">Mylan</ion-select-option>
+        <ion-select-option value="Servier">Servier</ion-select-option>
+        <ion-select-option value="George Fischer">George Fischer</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-button expand="block" color="primary">Sign In</ion-button>
+  </form>
+</ion-content>

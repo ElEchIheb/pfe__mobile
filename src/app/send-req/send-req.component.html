@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/dash2" expand="block">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Requests</ion-title>
+    <ion-buttons slot="end">
+      <ion-img src="assets/dxc.png" style="max-width: 50px; height: auto;"></ion-img>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+
+  <ion-card *ngIf="selectedTab === 'my-requests'">
+    <ion-card-header>
+      A list of all your requests including their names and status
+    </ion-card-header>
+  </ion-card>
+
+    <ion-content>
+      <ion-grid>
+        <!-- Header Row -->
+        <ion-row class="header-row">
+          <ion-col>Request ID</ion-col>
+          <ion-col>Sent Date</ion-col>
+          <ion-col>Reply date</ion-col>
+          <ion-col>Request Subject</ion-col>
+        </ion-row>
+
+        <!-- Data Rows -->
+        <ion-row>
+          <ion-col>1</ion-col>
+          <ion-col>14/05/2024</ion-col>
+          <ion-col>16/05/2024</ion-col>
+          <ion-col>Hello</ion-col>
+        </ion-row>
+        <!-- Repeat similar rows for other cases -->
+
+      </ion-grid>
+    </ion-content>
+
+    <ion-tabs>
+      <ion-tab-bar >
+        <ion-tab-button routerLink="/my-req" tab="my-requests" routerDirection="forward">
+          <ion-label>My Requests</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="sent-requests" class="selected-tab">
+          <ion-label>Sent Requests</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+
+
+
+</ion-content>

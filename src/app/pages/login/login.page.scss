@@ -1,0 +1,43 @@
+ion-button[color="dark"] {
+  text-transform: initial;
+}
+
+ion-content {
+  --background: var(--ion-color-primary);
+}
+
+.txt1 {
+  color: var(--ion-color-dark); /* Couleur du texte */
+  text-decoration: underline; /* Souligner le texte */
+  cursor: pointer; /* Curseur pointeur au survol */
+}
+
+.txt1:hover {
+  color: var(--ion-color-dark-shade); /* Changement de couleur au survol */
+}
+.Send-btn,
+.close-btn {
+    padding: 10px 20px; /* Padding autour du texte */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer; /* Curseur pointeur au survol */
+    transition: background-color 0.3s ease; /* Animation au survol */
+}
+
+.Send-btn {
+    background-color: var(--ion-color-primary); /* Couleur de fond */
+    color: white; /* Couleur du texte */
+}
+
+.Send-btn:hover {
+    background-color: var(--ion-color-primary-shade); /* Changement de couleur au survol */
+}
+
+.close-btn {
+    background-color: var(--ion-color-medium); /* Couleur de fond */
+    color: white; /* Couleur du texte */
+}
+
+.close-btn:hover {
+    background-color: var(--ion-color-medium-shade); /* Changement de couleur au survol */
+}

@@ -1,0 +1,111 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/dash2" expand="block">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Profil</ion-title>
+    <ion-buttons slot="end">
+      <ion-img src="assets/dxc.png" style="max-width: 50px; height: auto;"></ion-img>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6" offset-md="3">
+        <form [formGroup]="myform">
+          <ion-card>
+            <input #fileInput type="file" (change)="selectFile($event)" formControlName="file" style="display: none;">
+            <button (click)="fileInput.click()">
+              <ion-img type="file" [src]="imageUrl" alt="Profile Image" style="max-width: 100px;"></ion-img>
+              <ion-card-header>
+                <ion-card-subtitle class="ion-text-gray">utilisateur DXC</ion-card-subtitle>
+                <ion-card-title>{{firstName}} {{lastName}}</ion-card-title>
+              </ion-card-header>
+            </button>
+          </ion-card>
+        </form>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" size-md="8" offset-md="2">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Edit Profile</ion-card-title>
+            <ion-card-subtitle>Complete your profile</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <form #userForm="ngForm" [formGroup]="myform">
+              <ion-row>
+                <ion-col size="12" size-md="6">
+                  <ion-item>
+                    <ion-label position="floating">Email</ion-label>
+                    <ion-input type="email" [disabled]="true" value="{{email}}"></ion-input>
+                  </ion-item>
+                </ion-col>
+                <ion-col size="12" size-md="6">
+                  <ion-item>
+                    <ion-label position="floating">First Name</ion-label>
+                    <ion-input type="text" formControlName="firstName" value="{{firstName}}"></ion-input>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="12" size-md="6">
+                  <ion-item>
+                    <ion-label position="floating">Last Name</ion-label>
+                    <ion-input type="text" formControlName="lastName" value="{{lastName}}"></ion-input>
+                  </ion-item>
+                </ion-col>
+                <ion-col size="12">
+                  <ion-item>
+                    <ion-label position="floating">Telephone</ion-label>
+                    <ion-input type="text" formControlName="telephone" value="{{telephone}}"></ion-input>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+            </form>
+            <ion-button expand="full" color="primary" shape="round" (click)="updateProfile()">Update Profile</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" size-md="6" offset-md="3">
+        <form [formGroup]="changePasswordForm">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Change Password</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-item>
+                <ion-label position="floating">Old Password</ion-label>
+                <ion-input type="password" formControlName="oldPassword" required></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">New Password</ion-label>
+                <ion-input type="password" formControlName="newPassword" required></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Confirm Password</ion-label>
+                <ion-input type="password" formControlName="confirmPassword" required></ion-input>
+              </ion-item>
+              <ion-note color="danger" *ngIf="changePasswordForm.hasError('passwordsDoNotMatch')">
+                Confirm password doesn't match
+              </ion-note>
+              
+              <ion-button expand="full" color="primary" shape="round" (click)="updatePassword()" [disabled]="!changePasswordForm.valid">Change Password</ion-button>
+
+            </ion-card-content>
+          </ion-card>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

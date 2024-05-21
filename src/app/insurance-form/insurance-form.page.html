@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/dash2" expand="block">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Formulaire d'Assurance</ion-title>
+    <ion-buttons slot="end">
+      <ion-img src="assets/dxc.png" style="max-width: 50px; height: auto;"></ion-img>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <ion-list class="animated bounceInUp">
+    <ion-item>
+      <ion-label position="floating">Nom</ion-label>
+      <ion-input type="text" [(ngModel)]="nom"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Prénom</ion-label>
+      <ion-input type="text" [(ngModel)]="prenom"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Adresse</ion-label>
+      <ion-input type="text" [(ngModel)]="adresse"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Téléphone</ion-label>
+      <ion-input type="tel" [(ngModel)]="telephone"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Type d'Assurance</ion-label>
+      <ion-select [(ngModel)]="typeAssurance">
+        <ion-select-option value="Auto">Auto</ion-select-option>
+        <ion-select-option value="Maison">Maison</ion-select-option>
+        <ion-select-option value="Santé">Santé</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Montant Assuré</ion-label>
+      <ion-input type="number" [(ngModel)]="montantAssure"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <!-- Bouton pour soumettre le formulaire -->
+  <ion-button expand="block" (click)="submitForm()">Envoyer</ion-button>
+</ion-content>

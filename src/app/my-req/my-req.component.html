@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/dash2" expand="block">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Requests</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-tabs>
+    <ion-tab-bar >
+      <ion-tab-button tab="my-requests" class="selected-tab">
+        <ion-label>My Requests</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="sent-requests" routerLink="/send-req"routerDirection="back">
+        <ion-label>Sent Requests</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+
+  <ion-card *ngIf="selectedTab === 'my-requests'">
+    <ion-card-header>
+      A list of all your requests including their names and status
+    </ion-card-header>
+  </ion-card>
+  <ion-item>
+    <ion-label>Type:</ion-label>
+    <ion-select [(ngModel)]="selectedType">
+      <ion-select-option value="WorkCertificate">Work Certificate</ion-select-option>
+      <ion-select-option value="SalaryCertificate">Salary Certificate</ion-select-option>
+      <ion-select-option value="LeaveEntitlement">Leave Entitlement</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Subject:</ion-label>
+    <ion-input [(ngModel)]="subject"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Content:</ion-label>
+    <ion-textarea [(ngModel)]="content"></ion-textarea>
+  </ion-item>
+
+  <ion-item *ngIf="selectedType === 'LeaveEntitlement'">
+    <ion-label>Start Date:</ion-label>
+    <ion-input  type='Date' [(ngModel)]="startDate"></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf="selectedType === 'LeaveEntitlement'">
+    <ion-label>End Date:</ion-label>
+    <ion-input    type='Date' [(ngModel)]="endDate"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" color="primary" (click)="sendRequest()">Send</ion-button>
+  <ion-card *ngIf="selectedTab === 'sent-requests'">
+  </ion-card>
+</ion-content>

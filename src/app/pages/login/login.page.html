@@ -1,0 +1,85 @@
+<ion-content [fullscreen]="true">
+  <div class="flex-center">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title color="primary">Dxc technology</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <form class="login100-form" [formGroup]="loginform" (ngSubmit)="onSubmit()">
+          <ion-item>
+            <ion-label position="floating"></ion-label>
+            <ion-input
+              formControlName="email"
+              type="email"
+              fill="solid"
+              label="Email"
+              [class.alert-validate]="loginform.get('email')?.invalid"
+            ></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating"></ion-label>
+            <ion-input
+              formControlName="password"
+              type="password"
+              fill="solid"
+              label="Password"
+              [class.alert-validate]="loginform.get('password')?.invalid"
+            ></ion-input>
+          </ion-item>
+
+          <div class="flex-sb-m w-full p-b-30">
+            <div class="contact100-form-checkbox"></div>
+            <div class="form-inline fr mt-4">
+              <a href="#" id="forgot" (click)="toggleModal(); $event.preventDefault()" class="txt1">Mot de passe oublié?</a>
+            </div>
+          </div>
+
+          <div class="container-login100-form-btn">
+            <ion-button
+              type="submit"
+              [disabled]="!loginform.valid"
+              color="primary"
+              id="open-loading"
+              size="full"
+            >
+              Login
+            </ion-button>
+          </div>
+        </form>
+        <!-- Pop-up pour la réinitialisation du mot de passe -->
+        <ion-card *ngIf="showModal">
+          <ion-card-header>
+            <ion-card-title color="primary">Mot de passe oublié?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <div class="modal-dialog">
+              <div class="modal-header">
+                <p class="modal-title" id="exampleModalLabel">
+                  <small>Veuillez fournir votre e-mail, nous vous enverrons le lien de réinitialisation.</small>
+                </p>
+                <button type="button" class="btn-close" (click)="toggleModal()"></button>
+              </div>
+              <div class="modal-body">
+                <div class="form-group pt-3">
+                  <div class="input-field" style="width: 100%;">
+                    <div class="input-icon-container input-group">
+                      <span class="fa fa-envelope icon"></span>
+                      <input [(ngModel)]="resetPasswordEmail" (ngModelChange)="checkValidEmail($event)" type="text" placeholder="Entrez votre adresse e-mail">
+                    </div>
+                  </div>
+                </div>
+                <small *ngIf="!resetPasswordEmail" class="text-danger">*champ email est obligatoire*</small>
+                <small *ngIf="!emailValid" class="text-danger">*Email is not valid. Must be a dxc.com*</small>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="close-btn" (click)="toggleModal()">Annuler</button>
+                <button type="button" (click)="confirmToSend()" class="Send-btn" id="sendButton">Envoyer</button>
+              </div>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
